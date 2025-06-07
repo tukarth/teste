@@ -1,241 +1,169 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SoundVote</title>
+    <title>Vitrine de Código - Login</title>
     <style>
-        :root {
-            --bg-primary: #121212;
-            --text-primary: #ffffff;
-            --accent-color: #1DB954;
-            --secondary-color: #282828;
-        }
-        * {
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-        #app {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        header {
             display: flex;
-            justify-content: space-between;
+            min-height: 100vh;
+            flex-direction: column;
             align-items: center;
-            margin-bottom: 30px;
-        }
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-        }
-        nav a {
-            color: var(--text-primary);
-            text-decoration: none;
-        }
-        .music-player {
-            background-color: var(--secondary-color);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-        }
-        .track-info {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .track-info img {
-            width: 100px;
-            height: 100px;
-            margin-right: 20px;
-            object-fit: cover;
-        }
-        .player-controls {
-            display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-bottom: 20px;
+            background-color: #233237; /* Cor de fundo similar ao tema escuro */
+            color: #E0E0E0; /* Cor de texto clara */
         }
-        .player-controls button {
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        .progress-bar {
+        .container {
             width: 100%;
-            height: 5px;
-            background-color: #555;
-            border-radius: 3px;
+            max-width: 420px; /* max-w-md */
+            padding: 24px; /* p-6 */
         }
-        #progress {
-            width: 0;
-            height: 100%;
-            background-color: var(--accent-color);
-            border-radius: 3px;
+        .card {
+            background-color: #2A3B40; /* Cor de card um pouco mais clara que o fundo */
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-2xl */
+            border: 1px solid #3E5055; /* Cor da borda sutil */
         }
-        .vote-container {
+        .card-header {
+            text-align: center;
+            padding: 24px; /* p-6 */
+        }
+        .logo-container {
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1rem; /* mb-4 */
             display: flex;
-            justify-content: space-between;
-            gap: 20px;
+            height: 4rem; /* h-16 */
+            width: 4rem; /* w-16 */
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px; /* rounded-full */
+            background-color: #74EBD5; /* bg-primary */
+            color: #233237; /* text-primary-foreground */
         }
-        .vote-option {
-            background-color: var(--secondary-color);
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            flex: 1;
+        .logo-container svg {
+            width: 32px;
+            height: 32px;
         }
-        .vote-option img {
-            max-width: 200px;
-            margin-bottom: 10px;
+        .card-title {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 700; /* font-headline (aproximado) */
+            color: #E0E0E0;
         }
-        .vote-btn {
-            background-color: var(--accent-color);
-            color: var(--bg-primary);
+        .card-description {
+            color: #A0AEC0; /* text-muted-foreground (aproximado) */
+            font-size: 0.875rem; /* text-sm */
+        }
+        .card-content {
+            padding: 24px; /* p-6 */
+            padding-top: 0;
+        }
+        .form-group {
+            margin-bottom: 1.5rem; /* space-y-6 -> space-y-2 em cada div */
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem; /* space-y-2 -> mb (aproximado) */
+            font-size: 0.875rem; /* text-sm */
+            font-weight: 500; /* font-medium */
+            color: #E0E0E0;
+        }
+        .form-group input {
+            width: calc(100% - 24px); /* w-full com padding */
+            padding: 0.75rem 1rem; /* px-3 py-2 (ajustado para input h-10) */
+            border: 1px solid #3E5055; /* border-input */
+            border-radius: 0.375rem; /* rounded-md */
+            background-color: #2A3B40; /* bg-card */
+            color: #E0E0E0;
+            font-size: 1rem; /* text-base */
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #74EBD5; /* ring-primary (aproximado) */
+            box-shadow: 0 0 0 2px rgba(116, 235, 213, 0.5); /* ring-offset-background e ring-ring */
+        }
+        .submit-button {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background-color: #74EBD5; /* bg-primary */
+            color: #233237; /* text-primary-foreground */
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+            border-radius: 0.375rem; /* rounded-md */
+            font-size: 0.875rem; /* text-sm */
+            font-weight: 500; /* font-medium */
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem; /* mr-2 */
         }
-        footer {
+        .submit-button:hover {
+            background-color: #5cb8a9; /* hover:bg-primary/90 */
+        }
+        .submit-button svg {
+            width: 20px; /* w-5 */
+            height: 20px; /* h-5 */
+        }
+        .card-footer {
+            margin-top: 1rem; /* mt-4 */
+            padding: 24px; /* p-6 */
+            padding-top: 0;
             text-align: center;
-            margin-top: 30px;
-            padding: 20px;
-            background-color: var(--secondary-color);
+            font-size: 0.875rem; /* text-sm */
         }
-        @media (max-width: 768px) {
-            .vote-container {
-                flex-direction: column;
-            }
+        .card-footer p {
+            color: #A0AEC0; /* text-muted-foreground */
+            margin: 0;
         }
     </style>
 </head>
 <body>
-    <div id="app">
-        <header>
-            <div class="logo">SoundVote</div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#player">Player</a></li>
-                    <li><a href="#vote">Votar</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <main>
-            <section id="player">
-                <div class="music-player">
-                    <div class="track-info">
-                        <img id="track-cover" src="https://via.placeholder.com/100" alt="Capa da Música">
-                        <div class="track-details">
-                            <h2 id="track-title">Título da Música</h2>
-                            <p id="track-artist">Artista</p>
-                        </div>
-                    </div>
-                    <div class="player-controls">
-                        <button id="prev-btn">⏮️</button>
-                        <button id="play-pause-btn">▶️</button>
-                        <button id="next-btn">⏭️</button>
-                    </div>
-                    <div class="progress-bar">
-                        <div id="progress"></div>
-                    </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <div class="logo-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 18a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"/>
+                        <path d="M20 6a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"/>
+                        <path d="m4.5 16.5 7.5-9"/>
+                        <path d="m12 15 7.5-9"/>
+                    </svg>
                 </div>
-            </section>
-
-            <section id="vote">
-                <h2>Vote na Próxima Música</h2>
-                <div class="vote-container">
-                    <div class="vote-option">
-                        <img src="https://via.placeholder.com/200" alt="Música 1">
-                        <h3>Música 1</h3>
-                        <button class="vote-btn" onclick="voteSystem.vote('musica1')">Votar</button>
+                <h1 class="card-title">Vitrine de Código</h1>
+                <p class="card-description">Acesse para explorar os projetos</p>
+            </div>
+            <div class="card-content">
+                <form>
+                    <div class="form-group">
+                        <label for="username">Usuário</label>
+                        <input id="username" type="text" placeholder="Seu usuário" value="" readonly>
                     </div>
-                    <div class="vote-option">
-                        <img src="https://via.placeholder.com/200" alt="Música 2">
-                        <h3>Música 2</h3>
-                        <button class="vote-btn" onclick="voteSystem.vote('musica2')">Votar</button>
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <input id="password" type="password" placeholder="Sua senha" value="" readonly>
                     </div>
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <p>© 2025 SoundVote. Todos os direitos reservados.</p>
-        </footer>
+                    <button type="submit" class="submit-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                            <polyline points="10 17 15 12 10 7"/>
+                            <line x1="15" x2="3" y1="12" y2="12"/>
+                        </svg>
+                        Entrar
+                    </button>
+                </form>
+            </div>
+            <div class="card-footer">
+                <p>Este é um formulário de demonstração.</p>
+            </div>
+        </div>
     </div>
-
-    <script>
-        class MusicPlayer {
-            constructor() {
-                this.currentTrack = null;
-                this.isPlaying = false;
-                this.initializeControls();
-            }
-
-            initializeControls() {
-                const playPauseBtn = document.getElementById('play-pause-btn');
-                playPauseBtn.addEventListener('click', () => this.togglePlayPause());
-            }
-
-            togglePlayPause() {
-                this.isPlaying = !this.isPlaying;
-                const playPauseBtn = document.getElementById('play-pause-btn');
-                playPauseBtn.textContent = this.isPlaying ? '⏸️' : '▶️';
-            }
-        }
-
-        class VoteSystem {
-            constructor() {
-                this.votes = {};
-            }
-
-            vote(trackId) {
-                this.votes[trackId] = (this.votes[trackId] || 0) + 1;
-                this.updateVoteDisplay();
-            }
-
-            updateVoteDisplay() {
-                console.log('Votos atuais:', this.votes);
-            }
-
-            getResults() {
-                return this.votes;
-            }
-        }
-
-        const player = new MusicPlayer();
-        const voteSystem = new VoteSystem();
-
-        // Simulação de atualização de música
-        function updateTrackInfo() {
-            const tracks = [
-                { title: 'Música Exemplo 1', artist: 'Artista A', cover: 'https://via.placeholder.com/100' },
-                { title: 'Música Exemplo 2', artist: 'Artista B', cover: 'https://via.placeholder.com/100' }
-            ];
-
-            const randomTrack = tracks[Math.floor(Math.random() * tracks.length)];
-            
-            document.getElementById('track-title').textContent = randomTrack.title;
-            document.getElementById('track-artist').textContent = randomTrack.artist;
-            document.getElementById('track-cover').src = randomTrack.cover;
-        }
-
-        // Inicialização
-        document.addEventListener('DOMContentLoaded', () => {
-            updateTrackInfo();
-        });
-    </script>
 </body>
 </html>
+
+    
