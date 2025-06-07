@@ -1,83 +1,93 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Entre no Projeto</title>
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #1e2a2f;
-      color: #e0e0e0;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
       display: flex;
+      min-height: 100vh;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      margin: 0;
+      background-color: #233237;
+      color: #E0E0E0;
     }
 
     .container {
       width: 100%;
-      max-width: 400px;
-      padding: 20px;
+      max-width: 420px;
+      padding: 24px;
     }
 
     .card {
-      background-color: #2a3b40;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-      padding: 24px;
+      background-color: #2A3B40;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      border: 1px solid #3E5055;
     }
 
     .card-header {
       text-align: center;
-      margin-bottom: 24px;
+      padding: 24px;
     }
 
     .logo-container {
-      width: 64px;
-      height: 64px;
-      background: #74EBD5;
-      border-radius: 50%;
+      margin: 0 auto 1rem;
       display: flex;
+      height: 4rem;
+      width: 4rem;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 16px;
-      color: #1e2a2f;
+      border-radius: 9999px;
+      background-color: #74EBD5;
+      color: #233237;
     }
 
     .logo-container svg {
-      width: 28px;
-      height: 28px;
+      width: 32px;
+      height: 32px;
     }
 
     .card-title {
-      font-size: 1.8rem;
-      font-weight: bold;
-      margin-bottom: 8px;
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: #E0E0E0;
     }
 
     .card-description {
-      font-size: 0.9rem;
-      color: #a0aec0;
+      color: #A0AEC0;
+      font-size: 0.875rem;
+    }
+
+    .card-content {
+      padding: 0 24px 24px 24px;
     }
 
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 1.5rem;
     }
 
     .form-group label {
-      font-size: 0.85rem;
-      margin-bottom: 6px;
       display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #E0E0E0;
     }
 
     .form-group input {
       width: 100%;
-      padding: 10px;
-      border-radius: 6px;
-      border: 1px solid #3e5055;
-      background-color: #2a3b40;
-      color: #e0e0e0;
+      padding: 0.75rem 1rem;
+      border: 1px solid #3E5055;
+      border-radius: 0.375rem;
+      background-color: #2A3B40;
+      color: #E0E0E0;
       font-size: 1rem;
     }
 
@@ -89,18 +99,18 @@
 
     .submit-button {
       width: 100%;
-      padding: 12px;
+      padding: 0.75rem 1rem;
       background-color: #74EBD5;
-      color: #1e2a2f;
-      font-weight: 600;
+      color: #233237;
       border: none;
-      border-radius: 6px;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      font-weight: 500;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      transition: background 0.3s ease;
+      gap: 0.5rem;
     }
 
     .submit-button:hover {
@@ -113,10 +123,15 @@
     }
 
     .card-footer {
+      margin-top: 1rem;
+      padding: 0 24px 24px 24px;
       text-align: center;
-      font-size: 0.8rem;
-      color: #a0aec0;
-      margin-top: 16px;
+      font-size: 0.875rem;
+    }
+
+    .card-footer p {
+      color: #A0AEC0;
+      margin: 0;
     }
   </style>
 </head>
@@ -125,40 +140,38 @@
     <div class="card">
       <div class="card-header">
         <div class="logo-container">
-          <svg xmlns="http://localhost:3000/goto/ut61hNYHR?orgId=1" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-            <path d="M10 18a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"/>
-            <path d="M20 6a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"/>
-            <path d="m4.5 16.5 7.5-9"/>
-            <path d="m12 15 7.5-9"/>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 18a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
+            <path d="M20 6a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
+            <path d="m4.5 16.5 7.5-9" />
+            <path d="m12 15 7.5-9" />
           </svg>
         </div>
         <h1 class="card-title">Entre no Projeto</h1>
-        <p class="card-description">Acesse para explorar os projetos compartilhados.</p>
+        <p class="card-description">Acesse para explorar os projetos</p>
       </div>
-
       <div class="card-content">
-        <form>
+        <form action="http://localhost:3000/goto/PzrYhNLNR?orgId=1" method="GET">
           <div class="form-group">
             <label for="username">Usuário</label>
-            <input id="username" name="username" type="text" placeholder="Seu usuário">
+            <input id="username" type="text" placeholder="Seu usuário" required>
           </div>
           <div class="form-group">
             <label for="password">Senha</label>
-            <input id="password" name="password" type="password" placeholder="Sua senha">
+            <input id="password" type="password" placeholder="Sua senha" required>
           </div>
           <button type="submit" class="submit-button">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
-              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
-              <polyline points="10 17 15 12 10 7"/>
-              <line x1="15" x2="3" y1="12" y2="12"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+              <polyline points="10 17 15 12 10 7" />
+              <line x1="15" x2="3" y1="12" y2="12" />
             </svg>
             Entrar
           </button>
         </form>
       </div>
-
       <div class="card-footer">
         <p>Este é um formulário de demonstração.</p>
       </div>
