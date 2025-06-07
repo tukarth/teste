@@ -18,25 +18,22 @@
       background-color: #233237;
       color: #E0E0E0;
     }
-
     .container {
       width: 100%;
       max-width: 420px;
       padding: 24px;
     }
-
     .card {
       background-color: #2A3B40;
       border-radius: 0.5rem;
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                  0 4px 6px -2px rgba(0, 0, 0, 0.05);
       border: 1px solid #3E5055;
     }
-
     .card-header {
       text-align: center;
       padding: 24px;
     }
-
     .logo-container {
       margin: 0 auto 1rem;
       display: flex;
@@ -48,39 +45,31 @@
       background-color: #74EBD5;
       color: #233237;
     }
-
     .logo-container svg {
       width: 32px;
       height: 32px;
     }
-
     .card-title {
       font-size: 1.875rem;
       font-weight: 700;
       color: #E0E0E0;
     }
-
     .card-description {
       color: #A0AEC0;
       font-size: 0.875rem;
     }
-
     .card-content {
       padding: 0 24px 24px 24px;
     }
-
     .form-group {
       margin-bottom: 1.5rem;
     }
-
     .form-group label {
       display: block;
       margin-bottom: 0.5rem;
       font-size: 0.875rem;
       font-weight: 500;
-      color: #E0E0E0;
     }
-
     .form-group input {
       width: 100%;
       padding: 0.75rem 1rem;
@@ -90,13 +79,11 @@
       color: #E0E0E0;
       font-size: 1rem;
     }
-
     .form-group input:focus {
       outline: none;
       border-color: #74EBD5;
       box-shadow: 0 0 0 2px rgba(116, 235, 213, 0.5);
     }
-
     .submit-button {
       width: 100%;
       padding: 0.75rem 1rem;
@@ -112,23 +99,19 @@
       justify-content: center;
       gap: 0.5rem;
     }
-
     .submit-button:hover {
       background-color: #5cb8a9;
     }
-
     .submit-button svg {
       width: 20px;
       height: 20px;
     }
-
     .card-footer {
       margin-top: 1rem;
       padding: 0 24px 24px 24px;
       text-align: center;
       font-size: 0.875rem;
     }
-
     .card-footer p {
       color: #A0AEC0;
       margin: 0;
@@ -140,19 +123,19 @@
     <div class="card">
       <div class="card-header">
         <div class="logo-container">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M10 18a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
-            <path d="M20 6a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
-            <path d="m4.5 16.5 7.5-9" />
-            <path d="m12 15 7.5-9" />
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M10 18a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"/>
+            <path d="M20 6a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"/>
+            <path d="m4.5 16.5 7.5-9"/>
+            <path d="m12 15 7.5-9"/>
           </svg>
         </div>
         <h1 class="card-title">Entre no Projeto</h1>
         <p class="card-description">Acesse para explorar os projetos</p>
       </div>
       <div class="card-content">
-        <form action="http://localhost:3000/goto/PzrYhNLNR?orgId=1" method="GET">
+        <form id="loginForm">
           <div class="form-group">
             <label for="username">Usuário</label>
             <input id="username" type="text" placeholder="Seu usuário" required>
@@ -162,11 +145,11 @@
             <input id="password" type="password" placeholder="Sua senha" required>
           </div>
           <button type="submit" class="submit-button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-              <polyline points="10 17 15 12 10 7" />
-              <line x1="15" x2="3" y1="12" y2="12" />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+              <polyline points="10 17 15 12 10 7"/>
+              <line x1="15" x2="3" y1="12" y2="12"/>
             </svg>
             Entrar
           </button>
@@ -177,5 +160,33 @@
       </div>
     </div>
   </div>
+
+  <!-- Firebase + Redirecionamento -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.9.0/firebase-analytics.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAEtOJtXMIclBzLNNsEXJKqF4Rsqg_AAHs",
+      authDomain: "arthur-dba38.firebaseapp.com",
+      projectId: "arthur-dba38",
+      storageBucket: "arthur-dba38.firebasestorage.app",
+      messagingSenderId: "226852614993",
+      appId: "1:226852614993:web:c4b2ba9eb6a09772e69970",
+      measurementId: "G-WJDD8F5PMC"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+    // Simula login e redireciona
+    const form = document.getElementById("loginForm");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      // Aqui você poderia validar o login com Firebase Auth
+      // Mas para fins de portfólio/demonstração, vamos só redirecionar:
+      window.location.href = "http://localhost:3000/goto/PzrYhNLNR?orgId=1";
+    });
+  </script>
 </body>
 </html>
